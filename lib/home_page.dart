@@ -7,6 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow,
 
       appBar: AppBar(
         title: Text('Home'),
@@ -64,9 +65,9 @@ class HomePage extends StatelessWidget {
               child: Text('Profile')),
           ElevatedButton(
               onPressed: () {
-                context.go('/login');
+                context.go('/chat');
               },
-              child: Text('logout')),
+              child: Text('Chat')),
         ],
       ),
     );

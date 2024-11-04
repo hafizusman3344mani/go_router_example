@@ -4,11 +4,14 @@ import 'package:go_router_example/chat_page.dart';
 import 'package:go_router_example/dashboard_page.dart';
 import 'package:go_router_example/home_page.dart';
 import 'package:go_router_example/login_page.dart';
+import 'package:go_router_example/page_transition.dart';
 import 'package:go_router_example/profile_page.dart';
 import 'package:go_router_example/register_page.dart';
 import 'package:go_router_example/search_page.dart';
 import 'package:go_router_example/setting_page.dart';
 import 'package:go_router_example/splash_page.dart';
+
+import 'error_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,6 +42,13 @@ class MyApp extends StatelessWidget {
           GoRoute(
               path: '/home',
               builder: (context, state) => const HomePage(),
+              pageBuilder: (context, state) =>
+                  RouterTransitionFactory.getTransitionPage(
+                    context: context,
+                    state: state,
+                    child: const HomePage(),
+                    type: 'scale', // fade|rotation|scale|size
+                  ),
               routes: [
                 GoRoute(
                   path: '/profile',
@@ -59,14 +69,35 @@ class MyApp extends StatelessWidget {
           GoRoute(
             path: '/search',
             builder: (context, state) => const SearchPage(),
+            pageBuilder: (context, state) =>
+                RouterTransitionFactory.getTransitionPage(
+              context: context,
+              state: state,
+              child: const SearchPage(),
+              type: 'scale', // fade|rotation|scale|size
+            ),
           ),
           GoRoute(
             path: '/profile',
             builder: (context, state) => const ProfilePage(),
+            pageBuilder: (context, state) =>
+                RouterTransitionFactory.getTransitionPage(
+              context: context,
+              state: state,
+              child: const ProfilePage(),
+              type: 'scale', // fade|rotation|scale|size
+            ),
           ),
           GoRoute(
             path: '/settings',
             builder: (context, state) => const SettingPage(),
+            pageBuilder: (context, state) =>
+                RouterTransitionFactory.getTransitionPage(
+              context: context,
+              state: state,
+              child: const SettingPage(),
+              type: 'scale', // fade|rotation|scale|size
+            ),
           ),
         ],
       ),

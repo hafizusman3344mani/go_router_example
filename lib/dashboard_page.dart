@@ -27,7 +27,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
       context.go(_routes[index]);
     });
   }
-
+  void refresh() {
+    setState(() {
+      // Perform refresh logic here
+      print("Dashboard refreshed!");
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
